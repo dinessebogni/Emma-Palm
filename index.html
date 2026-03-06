@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>L'Or Rouge du Terroir</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="logo">
+        <div class="logo-circle">EP</div>
+        <span>EMMA PALM</span>
+    </div>
+    <div class="nav-links">
+        <a href="#hero">Accueil</a>
+        <a href="#concept">Concept</a>
+        <a href="#gallery">Réalisations</a>
+        <!-- <a href="#contact">Contact</a> -->
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="hero" class="hero">
+    <div class="hero-content">
+        <span class="badge">Projet IWD - Soutenance</span>
+        <h1>
+            L'huile rouge <br>
+            <strong> "Emma Palm"</strong>
+        </h1>
+        <p>
+            Conception et réalisation d'un packaging innovant pour un produit locale : cas de l'huile rouge
+             
+        </p>
+        <a href="#gallery" class="btn">Voir les réalisations</a>
+    </div>
+</section>
+
+<!-- Concept Section -->
+<section id="concept" class="section light">
+    <div class="container">
+        <div class="text">
+            <h2>Le Concept</h2>
+            <h3>Valoriser le produit local par le design</h3>
+            <p>
+                L'huile rouge est un pilier de notre gastronomie. Pourtant, son packaging 
+                reste souvent rudimentaire. Ce projet vise à moderniser son image.
+            </p>
+            <p>
+                Ma démarche repose sur trois axes : authenticité, praticité et esthétique.
+            </p>
+        </div>
+        <div class="image">
+            <img src="images/packaging.jpg" alt="Packaging">
+        </div>
+    </div>
+</section>
+
+<!-- Identité -->
+<section class="section">
+    <div class="container">
+        <div class="image">
+            <img class="logo1" src="images/logo1.png" alt="Logo">
+            <img class="logo2" src="images/logo2.png" alt="Logo">
+        </div>
+        <div class="text">
+            <h2>Identité Visuelle</h2>
+            <p>
+                Le logo symbolise la pureté et l’authenticité du produit.
+                Les couleurs rouge et vert rappellent la richesse naturelle
+                et l’origine agricole.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="gallery" class="section light center">
+    <h2>Mes Réalisations</h2>
+
+    <!-- Filtres -->
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="affiche">Affiches</button>
+        <button class="filter-btn" data-filter="flyer">Flyers</button>
+        <button class="filter-btn" data-filter="etiquette">Étiquettes</button>
+        <button class="filter-btn" data-filter="packaging">Packaging</button>
+    </div>
+
+    <div class="gallery">
+        <!-- Conteneurs d'image -->
+        <div class="img-container" data-category="affiche">
+            <img src="images/all.jpg" alt="Affiche">
+            <span class="eye">&#128065;</span>
+        </div>
+        <div class="img-container" data-category="affiche">
+            <img src="images/bidon20l.jpg" alt="Affiche">
+            <span class="eye">&#128065;</span>
+        </div>
+        <div class="img-container" data-category="affiche">
+            <img src="images/bidon5l.jpg" alt="Affiche">
+            <span class="eye">&#128065;</span>
+        </div>
+        <div class="img-container" data-category="affiche">
+            <img src="images/bouteille.jpg" alt="Affiche">
+            <span class="eye">&#128065;</span>
+        </div>
+        <div class="img-container" data-category="affiche">
+            <img src="images/fût.jpg" alt="Affiche">
+            <span class="eye">&#128065;</span>
+        </div>
+        <div class="img-container" data-category="flyer">
+            <img src="images/DéCLARATION (5).png" alt="Flyer">
+            <span class="eye">&#128065;</span>
+        </div>
+        <div class="img-container" data-category="etiquette">
+            <img src="images/etiquette1.jpg" alt="Étiquette">
+            <span class="eye">&#128065;</span>
+        </div>
+        <div class="img-container" data-category="packaging">
+            <img src="images/packaging.jpg" alt="Packaging">
+            <span class="eye">&#128065;</span>
+        </div>
+        <div class="img-container" data-category="packaging">
+            <img src="images/carton-sachet.jpg" alt="Packaging">
+            <span class="eye">&#128065;</span>
+        </div>
+        <div class="img-container" data-category="packaging">
+            <img src="images/carton1l.jpg" alt="Packaging">
+            <span class="eye">&#128065;</span>
+        </div>
+    </div>
+</section>
+
+<!-- Modal / Lightbox -->
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-img" src="">
+</div>
+
+<!-- Modal / Lightbox -->
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-img" src="">
+</div>
+
+<!-- Footer -->
+<footer id="contact">
+    <div class="footer-content">
+        <h2>Emma Palm</h2>
+        <p>Mini site vitrine réalisé en complément du PowerPoint.</p>
+        <p><strong>Bogni Sonkeng Dariska - IWD</strong></p>
+    </div>
+</footer>
+
+<script>
+const filterButtons = document.querySelectorAll('.filter-btn');
+const imgContainers = document.querySelectorAll('.img-container');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.querySelector('.lightbox-img');
+const closeBtn = document.querySelector('.close');
+
+// ===== Filtres =====
+filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        imgContainers.forEach(container => {
+            if (filter === 'all' || container.dataset.category === filter) {
+                container.classList.remove('hide');
+            } else {
+                container.classList.add('hide');
+            }
+        });
+    });
+});
+
+// ===== Modal / Lightbox =====
+imgContainers.forEach(container => {
+    const eye = container.querySelector('.eye');
+    const img = container.querySelector('img');
+
+    eye.addEventListener('click', e => {
+        e.stopPropagation(); // Evite conflit
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+    });
+});
+
+// Fermer modal
+closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+});
+
+lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+    }
+});
+</script>
+
+</body>
+</html>
